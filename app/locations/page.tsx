@@ -26,7 +26,6 @@ const page = () => {
       />
       <div className="py-10">
         <h2 className="text-center text-3xl text-main">
-          {" "}
           {contentData.areatitle}
         </h2>
       <FullPage />

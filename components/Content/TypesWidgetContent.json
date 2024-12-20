@@ -1,0 +1,36 @@
+{
+  "title": "Discover Expert Roofing Services for Every Need",
+  "p": "",
+  "lists": [
+    {
+      "title": "Roof Installation",
+      "imageUrl": "worker-hands-installing-bitumen-roof-shingle.jpg",
+      "description": "Seamless installation of high-quality roofs tailored to your property, ensuring durability and long-term performance."
+    },
+    {
+      "title": "Roof Repair",
+      "imageUrl": "male-builder-doing-thermal-insulation-on-roof.jpg",
+      "description": "We offer quick and reliable fixes for leaks, damaged shingles, and other common issues to restore your roof’s integrity."
+    },
+    {
+      "title": "Roof Inspections",
+      "imageUrl": "selective-focus-of-repairman-in-orange-helmet-sit.jpg",
+      "description": "Detailed evaluations to identify and address potential issues before they escalate, saving you time and money."
+    },
+    {
+      "title": "Storm Damage Restoration",
+      "imageUrl": "damaged-house-roof-and-walls-after-hurricane.jpg",
+      "description": "Emergency services repair and restore your roof after severe weather events, minimizing disruption."
+    },
+    {
+      "title": "Roof Waterproofing and Coatings",
+      "imageUrl": "worker-painting-red-rooftop-with-roller-at-residen.jpg",
+      "description": "Extend your roof’s lifespan with advanced waterproof coatings designed for ultimate protection against water damage."
+    },
+    {
+      "title": "Roof Rebuild Services",
+      "imageUrl": "male-builder-drilling-in-the-wooden-frame.jpg",
+      "description": "If your roof has suffered extensive damage or reached the end of its lifespan, our complete roof rebuild services provide a fresh start. We expertly replace your old or damaged roof with a brand-new"
+    }
+  ]
+}

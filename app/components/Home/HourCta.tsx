@@ -15,7 +15,7 @@ const HourCta = () => {
               className="w-full pt-4 text-center text-xl leading-snug md:pt-0  md:text-[38px]"
               dangerouslySetInnerHTML={{ __html: data.title }}
             ></div>
-            <a
+            <a id='cta-id'
               href={`tel:${ContactInfo.tel}`}
               className="flex    w-full justify-center px-0 md:text-4xl"
             >

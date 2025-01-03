@@ -26,7 +26,7 @@ const HourCta = () => {
                   <div className="jsutify-center flex items-center text-left text-xl">
                     CALL TODAY
                   </div>
-                  <div className="mt-1 md:text-4xl ">{ContactInfo.No} </div>
+                  <div id='cta-id' className="mt-1 md:text-4xl ">{ContactInfo.No} </div>
                 </div>
               </div>
             </a>

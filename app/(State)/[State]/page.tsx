@@ -19,6 +19,7 @@ import Guarantees from "@/app/components/Widgets/Guarantees";
 import ReviewWidget from "@/app/components/Widgets/ReviewWidget";
 import data from "@/components/Content/serviceWidgetContent.json";
 import Types from "@/app/components/Widgets/Types";
+import AreaWeServe from "@/app/components/Widgets/AreaWeServe";
 // import Service from "@/app/Components/Service";
 
 interface SubdomainPageProps {
@@ -65,6 +66,9 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
   // nity or db query us particular subdomain read data from database .... neeche theme nu pass hoyega and page render hojaega
   // Render subdomain-specific content
   const ContentData = cityData[State];
+  const slugs: any = Object.keys(cityData)
+    .filter((key) => key !== State)
+    .map((key) => cityData[key]);
   return (
     <div className="mx-auto max-w-[2100px] overflow-hidden">
       <Banner
@@ -88,14 +92,14 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
           />
         </div>
         <div className=" flex w-full flex-col gap-3   ">
-          <h2 className="text-2xl font-bold">{ContentData?.h2}</h2>
+          <h2 className="text-3xl font-bold">{ContentData?.h2}</h2>
 
           <div
             className="mt-3  text-justify"
             dangerouslySetInnerHTML={{ __html: ContentData?.p2 }}
           ></div>
           <a id='cta-id' href={`tel:${ContactInfo.tel}`} className="flex justify-center">
-            <button className="mt-6 rounded-lg bg-main px-6 py-2 text-xl font-bold text-white hover:translate-y-2 hover:bg-minor ">
+            <button id='cta-id' className="mt-6 rounded-lg bg-main px-6 py-2 text-xl font-bold text-white hover:translate-y-2 hover:bg-minor ">
               {ContactInfo.No}
             </button>
           </a>
@@ -105,7 +109,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
       {/* Section 2 */}
       {ContentData.h3 && (
         <div className="mt-14 flex flex-col items-center justify-center bg-main p-6 px-6 text-center text-white md:mt-28 md:px-24">
-          <h2 className="text-2xl font-bold ">{ContentData?.h3}</h2>
+          <h2 className="text-3xl font-bold ">{ContentData?.h3}</h2>
           <p
             className="mt-4 text-lg"
             dangerouslySetInnerHTML={{ __html: ContentData?.p3 }}
@@ -126,17 +130,17 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
       {/* Cta */}
       {/* Needs */}
       {ContentData?.needsSection ? (
-        <div className="mt-14 w-full px-6 md:mt-28 md:px-24">
-          <h2 className="text-first text-center text-3xl font-extrabold">
+        <div className="mt-14 w-full px-6 md:mt-28 md:px-32">
+          <h2 className="text-first text-center text-3xl font-extrabold text-main">
             {ContentData?.needsSection.title}
           </h2>
           <p
-            className="mt-4 text-center text-lg"
+            className="mt-6 text-center text-lg"
             dangerouslySetInnerHTML={{
               __html: ContentData?.needsSection.description,
             }}
           ></p>
-          <div className="event mt-6 grid grid-cols-1 gap-5 text-center sm:grid-cols-2 md:gap-16  lg:grid-cols-3">
+          <div className="event mt-8 grid grid-cols-1 gap-5 text-center sm:grid-cols-2 md:gap-16  lg:grid-cols-3">
             {ContentData?.needsSection.needslist.map(
               (item: any, index: any) => {
                 return (
@@ -174,7 +178,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
               height={10000}
               width={10000}
               src={`/${ContentData.h5Image}`}
-              className=" h-full w-full rounded-lg object-cover shadow-lg"
+              className=" h-80 w-full rounded-lg object-cover shadow-lg"
               alt={ContentData.h5Image.split(".")[0]}
               title={ContentData.h5Image.split(".")[0]}
             />
@@ -330,6 +334,13 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
         </div>
       ) : null}
       {/* Top Sight */}
+      {/* Top Sight */}
+       {/* Area we Serve */}
+       <div className="mt-14 md:mt-28">
+        <h2 className={`  text-center text-3xl font-bold`}>Cities We Serve </h2>
+        <AreaWeServe slugs={slugs} />
+      </div>
+      {/* Area we Serve */}
       {/* Neighborhood */}
       {ContentData?.neighbourhoods ? (
         <div className="">
@@ -340,7 +351,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
               slug={ContentData?.slug}
             />
           </div>
-          <div className="mt-28 hidden items-center justify-start md:mx-40 md:block ">
+          <div className="mt-14 hidden items-center justify-start md:mx-40 md:block ">
             <div className="text-center text-3xl font-bold">
               <p className="text-main">
                 Neighborhoods we serve in {ContentData?.name}
@@ -374,7 +385,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
               slug={ContentData?.slug}
             />
           </div>
-          <div className="mt-28 hidden items-center justify-start md:mx-40 md:block  ">
+          <div className="mt-14 hidden items-center justify-start md:mx-40 md:block  ">
             <div className="text-center text-3xl font-bold">
               <p className="text-main">
                 Zip&nbsp;Codes we serve in {ContentData?.name}

@@ -66,6 +66,7 @@ const Banner = ({
           </div>
           <a id='cta-id' href={`tel:${ContactInfo.tel}`}>
             <button
+            id='cta-id'
               aria-label="Call"
               className={`flex items-center  rounded-lg  bg-minor p-3 px-4  text-xl font-semibold text-white`}
             >

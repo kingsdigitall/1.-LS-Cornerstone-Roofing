@@ -213,7 +213,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
       {/* Section 3 */}
       {ContentData.h4 && (
         <div className="mt-14 flex flex-col items-center justify-center bg-main p-6 px-6 text-center text-white md:mt-28 md:px-24">
-          <h2 className="text-2xl font-bold ">{ContentData?.h4}</h2>
+          <h2 className="text-3xl font-bold ">{ContentData?.h4}</h2>
           <p
             className="mt-4 text-lg"
             dangerouslySetInnerHTML={{ __html: ContentData?.p4 }}

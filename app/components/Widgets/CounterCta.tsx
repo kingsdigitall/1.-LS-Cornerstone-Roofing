@@ -28,8 +28,8 @@ const CounterCta = () => {
         When your roof needs attention, don’t wait or settle for less. At LS Cornerstone Roofing, we provide affordable, dependable service you can trust. Whether it’s a minor repair or a full roof replacement, our experienced team is ready to tackle any project with precision and care. Reach out to us today for expert roofing solutions!
         </div>
         <div className="mt-6  gap-4 flex justify-center ">
-          <div className="flex flex-col text-lg  border px-4 py-2 bg-white rounded-md">
-            <div className=" font-bold text-main">
+          <div id='cta-id' className="flex flex-col text-lg  border px-4 py-2 bg-white rounded-md">
+            <div id='cta-id' className=" font-bold text-main">
               <a id='cta-id' href={`tel:${ContactInfo.tel}`}>{ContactInfo.No}</a>
             </div>
           </div>

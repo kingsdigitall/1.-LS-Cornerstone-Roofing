@@ -17,7 +17,7 @@ const Affordable = ({Data}:any) => {
          {Data.missionDescription}
           </p>
           <a id='cta-id' href={`tel:${contactInfo.tel}`}>
-          <button className="mt-8 rounded-lg bg-minor px-6 py-3 text-white transition hover:bg-main ease-in duration-700" >
+          <button id='cta-id' className="mt-8 rounded-lg bg-minor px-6 py-3 text-white transition hover:bg-main ease-in duration-700" >
             Call Now
           </button>
           </a>

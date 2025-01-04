@@ -46,6 +46,7 @@ const Page = () => {
   // );
   // const slugs = groupedByState.ca.cities.map(city => city.slug);
   // console.log(slugs);
+  console.log(Object.keys(data))
   return (
     <div className="">
       <div className="mx-10 mt-10 flex h-fit w-auto flex-wrap gap-4   justify-center items-center">

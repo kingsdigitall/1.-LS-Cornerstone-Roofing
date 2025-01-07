@@ -98,8 +98,15 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
             className="mt-3  text-justify"
             dangerouslySetInnerHTML={{ __html: ContentData?.p2 }}
           ></div>
-          <a id='cta-id' href={`tel:${ContactInfo.tel}`} className="flex justify-center">
-            <button id='cta-id' className="mt-6 rounded-lg bg-main px-6 py-2 text-xl font-bold text-white hover:translate-y-2 hover:bg-minor ">
+          <a
+            id="cta-id"
+            href={`tel:${ContactInfo.tel}`}
+            className="flex justify-center"
+          >
+            <button
+              id="cta-id"
+              className="mt-6 rounded-lg bg-main px-6 py-2 text-xl font-bold text-white hover:translate-y-2 hover:bg-minor "
+            >
               {ContactInfo.No}
             </button>
           </a>
@@ -335,8 +342,8 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
       ) : null}
       {/* Top Sight */}
       {/* Top Sight */}
-       {/* Area we Serve */}
-       <div className="mt-14 md:mt-28">
+      {/* Area we Serve */}
+      <div className="mt-14 md:mt-28">
         <h2 className={`  text-center text-3xl font-bold`}>Cities We Serve </h2>
         <AreaWeServe slugs={slugs} />
       </div>

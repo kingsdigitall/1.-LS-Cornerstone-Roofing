@@ -70,7 +70,7 @@ const Footer = () => {
           </div>
           <div className="mx-9 mt-10 border-t-2 border-minor text-center  text-xl text-white ">
             <p className="my-2">
-            Copyright ©2024 {ContactInfo.name}, All Right Reserved
+            Copyright ©2025 {ContactInfo.name}, All Right Reserved
             </p>
           </div>
         </div>

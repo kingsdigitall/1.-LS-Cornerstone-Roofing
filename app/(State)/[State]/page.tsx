@@ -32,7 +32,7 @@ export function generateMetadata({ params }: SubdomainPageProps) {
   const ContentData = cityData[State];
   return {
     title: ContentData?.metaTitle,
-    description: ContentData?.metaDescription,
+    description: `${ContentData.metaDescription}. Call us at (307) 417-8167.`,
     alternates: {
       canonical: `https://${State}.${ContactInfo.host}`,
     },
@@ -75,7 +75,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
         h1={ContentData.h1Banner}
         image={ContentData.bannerImage}
         header={ContentData.bannerQuote}
-        p1={ContentData.p1Banner}
+        p1={`${ContentData.metaDescription}. Call us at (307) 417-8167.`}
       />
       {/* Section 1 */}
       {/* <p>{subDomain.map((item:any)=>(

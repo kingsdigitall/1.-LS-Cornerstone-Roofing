@@ -68,6 +68,14 @@ const Footer = () => {
               </div>
             </div> */}
           </div>
+          <div className="mx-9   text-center  text-3xl font-medium text-minor ">
+            <p className="my-2 hover:underline underline-offset-8 hover:underline-offset-2 ease-in-out duration-300">
+            <Link href="https://lscornerstoneroofing.com/our-brands" > Our Other Brand </Link>
+            </p>
+            <p className="my-2 text-lg hover:underline underline-offset-8 hover:underline-offset-2 ease-in-out duration-300">
+            <Link href="https://lscornerstoneroofing.com/sitemap.xml" > Sitemap </Link>
+            </p>
+          </div>
           <div className="mx-9 mt-10 border-t-2 border-minor text-center  text-xl text-white ">
             <p className="my-2">
             Copyright ©2025 {ContactInfo.name}, All Right Reserved

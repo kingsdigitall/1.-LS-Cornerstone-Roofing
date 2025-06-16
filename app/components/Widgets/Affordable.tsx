@@ -1,8 +1,5 @@
 import React from 'react'
 import contactInfo from "@/components/Content/ContactInfo.json"
-import { GrUserWorker } from 'react-icons/gr';
-import { FaRegThumbsUp } from 'react-icons/fa';
-import { GiReceiveMoney } from "react-icons/gi";
 
 const Affordable = ({Data}:any) => {
   // console.log(Data);

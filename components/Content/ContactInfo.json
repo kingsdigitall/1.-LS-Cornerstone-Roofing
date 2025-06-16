@@ -4,5 +4,9 @@
     "mail":"",
     "baseUrl":"https://lscornerstoneroofing.com/",
     "host":"lscornerstoneroofing.com",
-    "name":"LS Cornerstone Roofing"
+    "name":"LS Cornerstone Roofing",
+    "address":"2255 Brunton Court Suite A, Riverton, WY 82501, United States",
+    "location": "Wyoming",
+     "service": "Roofing Service",
+     "logoImage":"https://ik.imagekit.io/serviceproviders/lscornerstoneroofing.com/logo.png?updatedAt=1750063302203"
 }

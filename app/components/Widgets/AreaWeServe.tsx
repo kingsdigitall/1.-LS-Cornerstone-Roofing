@@ -16,7 +16,7 @@ const AreaWeServe = ({ slugs }: any) => {
   };
 
   return (
-    <div className="mx-6 md:mx-10 flex h-fit w-auto flex-wrap gap-4 mt-4 justify-center items-center">
+    <div  className="mx-6 md:mx-10 flex h-fit w-auto flex-wrap gap-4 mt-4 justify-center items-center scroll-smooth">
       {slugs
         .sort()
         .slice(0, showAll ? slugs.length : initialCount)
@@ -50,7 +50,7 @@ const AreaWeServe = ({ slugs }: any) => {
           onClick={handleShowLess}
           className="text-white bg-minor hover:bg-minor/90 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-xs px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
         >
-          Show Less
+          <a href="#area-we-serve">Show Less</a>
         </button>
       )}
     </div>

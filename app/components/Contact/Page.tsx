@@ -1,14 +1,18 @@
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { BiMailSend, BiSolidPhone, BiSolidTime } from "react-icons/bi";
 import { FaPhoneVolume } from "react-icons/fa6";
-import contentData from "@/components/Content/contact.json";
+import contentData1 from "@/components/Content/contact.json";
 import ContactInfo from '@/components/Content/ContactInfo.json';
 import Banner from "../Home/Banner";
 
-
+const contentData = JSON.parse(
+    JSON.stringify(contentData1)
+      .split("[location]")
+      .join(ContactInfo.location)
+      .split("[phone]")
+      .join(ContactInfo.No),
+  );
 const Page = () => {
 
   return (
@@ -28,7 +32,7 @@ const Page = () => {
           <div className="md:px-20 px-4 mt-10">
             <div className="gap-6  mt-10 grid grid-cols-1 md:grid-cols-2 items-center">
               <Image
-                src={`/${contentData.h2Image}`}
+                src={`${contentData.h2Image}`}
                 width={1000}
                 height={1000}
                 alt={contentData.h2Image.split(".")[0]}
@@ -45,7 +49,7 @@ const Page = () => {
                   dangerouslySetInnerHTML={{ __html: contentData.p2 }}
                 ></p>
                 <Link id='cta-id' href={`tel:${ContactInfo.tel}`}>
-                  <button id='cta-id'
+                  <button id="cta-id"
                     className="bg-main hover:bg-minor text-white font-bold p-4 rounded-3xl mt-10 text-xl flex justify-center border items-center"
                   >
                     <FaPhoneVolume className="text-3xl mr-2" />
@@ -60,9 +64,9 @@ const Page = () => {
 
         {/* Let's Start a Conversation */}
         <div className="mt-16">
-          <div className="text-main text-4xl font-extrabold text-center">
+          <h2 className="text-main text-4xl font-extrabold text-center">
             Let&apos;s Start a Conversation
-          </div>
+          </h2>
           <div className="text-center border-double">
             <a id='cta-id' href={`tel:${ContactInfo.tel}`}>
               <button id='cta-id'
@@ -88,7 +92,7 @@ const Page = () => {
           </div>
           <div>
             <Image
-              src={`/${contentData.h3Image}`}
+              src={`${contentData.h3Image}`}
               className="border rounded-lg w-full h-[350px] shadow-lg object-cover"
               alt={contentData.h3Image.split(".")[0]}
               width={1000}
@@ -102,15 +106,15 @@ const Page = () => {
         <div className="xl:w-full w-11/12 mx-4 md:mx-0 mt-16 md:mb-4 px-10 flex flex-col gap-6 md:flex-row justify-center items-center group md:space-x-2">
           <Image
             aria-hidden="true"
-            src="/img1.png"
-            alt="Calling icon Star dryer vent"
+            src="https://ik.imagekit.io/serviceproviders/advancedqualityroofingaz.com/img1.png?updatedAt=1749641037584"
+            alt="Calling icon"
             width={200}
             height={200}
             className="group-hover:-translate-y-4 ease-in duration-300"
           />
           <Link id='cta-id' href={`tel:${ContactInfo.tel}`} className="w-full grid place-items-center">
             <div id='cta-id'
-              className= "bg-white w-[90%] text-2xl font-semibold text-center rounded-lg m-h-64 p-2 ring ring-main transform hover:shadow-minor group-hover:translate-y-4 hover:shadow-xl transition ease-in duration-300"
+              className="bg-white w-[90%] text-2xl font-semibold text-center rounded-lg m-h-64 p-2 ring ring-main transform hover:shadow-minor group-hover:translate-y-4 hover:shadow-xl transition ease-in duration-300"
               dangerouslySetInnerHTML={{ __html: contentData.ctaText }}
             ></div>
           </Link>
@@ -120,7 +124,7 @@ const Page = () => {
         {/* Map */}
         <div className="w-full mt-10">
           <iframe
-            src="https://maps.google.com/maps?q=+wyoming+usa&t=&z=7&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=+Arizona+usa&t=&z=7&ie=UTF8&iwloc=&output=embed"
             height="350"
             className="border w-full rounded-lg mt-10"
             loading="lazy"

@@ -5,5 +5,77 @@
       "bannerImage": "banner.jpg",
       "h1Banner": "Your Trusted Provider for Roofing Services",
       "p1Banner":"",
-      "serviceTitle":""
+      "serviceTitle":"",
+      "serviceData": {
+  "title": "Your Roof’s Best Support System",
+  "p": "",
+  "lists": [
+    {
+      "title": "Roof Installation in [location]",
+      "description": "Call [phone] to schedule roof installation in [location]. Ideal for homeowners starting fresh or expanding current space. Our installations prioritize long-term durability and modern style.",
+      "h2": "Let’s Build It Right from Day One",
+      "p2": "Roof installation in [location] requires expertise from blueprint to completion. We deliver exceptional craftsmanship and materials tailored for your region’s weather and design needs.",
+      "h3": "Great for Any New Space",
+      "p3": "New homes | Room additions | Detached structures | Garage roofs | Renovation projects",
+      "seoContent": "<h2>Professional Roof Installation in [location]</h2><p>We install high-performance roofing systems in [location] built to last. From selection to finishing touches, we deliver unmatched quality. Call [phone] today to get started.</p>",
+      "slug": "roof-installation",
+      "imageUrl": "https://ik.imagekit.io/serviceproviders/lscornerstoneroofing.com/Roofing-technicians-with-roofer-expert.png?updatedAt=1750063307535"
+    },
+    {
+      "title": "Roof Repair in [location]",
+      "description": "Call [phone] for quick and reliable roof repairs in [location]. From small leaks to storm damage, we restore your roof fast and professionally.",
+      "h2": "Fix It Fast. Fix It Right.",
+      "p2": "Roof repairs in [location] are key to extending the life of your home. We accurately locate and fix the issues, protecting your investment with lasting solutions.",
+      "h3": "Common Roofing Issues We Repair",
+      "p3": "Leaks | Missing shingles | Hail/wind damage | Flashing cracks | Nail pops | Sagging sections",
+      "seoContent": "<h2>Trusted Roof Repairs in [location]</h2><p>We tackle all kinds of roof repairs in [location]—quickly and cleanly. Prevent bigger problems and protect your property. Call [phone] for service now.</p>",
+      "slug": "roof-repair",
+      "imageUrl": "https://ik.imagekit.io/serviceproviders/lscornerstoneroofing.com/medium-shot-men-working-roof-together.jpg?updatedAt=1750063303456"
+    },
+    {
+      "title": "Roof Inspections in [location]",
+      "description": "Call [phone] to schedule a roof inspection in [location]. Perfect for pre-sale evaluations, post-storm reviews, and regular roof maintenance.",
+      "h2": "Stay Ahead with Roof Insights",
+      "p2": "Roof inspections in [location] help identify hidden problems before they escalate. Our team provides a clear, detailed report for peace of mind and informed decisions.",
+      "h3": "When to Get an Inspection",
+      "p3": "Home sales | Insurance claims | Storm aftermath | Annual checkups | After repairs",
+      "seoContent": "<h2>Certified Roof Inspectors in [location]</h2><p>We provide detailed roofing inspections in [location] to help you understand your roof’s health. Schedule your appointment with [phone] today.</p>",
+      "slug": "roof-inspections",
+      "imageUrl": "https://ik.imagekit.io/serviceproviders/lscornerstoneroofing.com/male-builder-doing-thermal-insulation-on-roof.jpg?updatedAt=1750063302790"
+    },
+    {
+      "title": "Storm Damage Restoration in [location]",
+      "description": "Call [phone] for storm damage roofing services in [location]. We repair and restore roofing systems after hail, wind, or fallen trees.",
+      "h2": "Restoring Safety After the Storm",
+      "p2": "Storm damage restoration in [location] means urgent action and expert repair. We evaluate, document, and fix your roof so you can feel secure again—fast.",
+      "h3": "We Handle Post-Storm Issues Like",
+      "p3": "Shingle loss | Structural damage | Impact from debris | Leaks | Hail strikes | Flashing failure",
+      "seoContent": "<h2>Storm Roof Repair in [location]</h2><p>We respond fast to storm-related roof damage in [location], with solutions built to restore and strengthen. Call [phone] for emergency help now.</p>",
+      "slug": "storm-damage-restoration",
+      "imageUrl": "https://ik.imagekit.io/serviceproviders/lscornerstoneroofing.com/damaged-house-roof-and-walls-after-hurricane.jpg?updatedAt=1750063319941"
+    },
+    {
+      "title": "Roof Waterproofing and Coatings in [location]",
+      "description": "Call [phone] to protect your roof with waterproofing and coatings in [location]. We help extend roof life, prevent leaks, and improve energy efficiency.",
+      "h2": "Seal in Strength, Seal Out Damage",
+      "p2": "Roof waterproofing and coatings in [location] provide a durable barrier against rain, UV rays, and aging. Our advanced products improve performance and lower maintenance costs.",
+      "h3": "Great Options for Long-Term Protection",
+      "p3": "Elastomeric coatings | Reflective finishes | Seam reinforcements | Flat roof sealing | Leak prevention",
+      "seoContent": "<h2>Waterproof Roofing Solutions in [location]</h2><p>Keep your roof protected from moisture and wear with our coating services in [location]. Ask about our leak-proof options—call [phone] today.</p>",
+      "slug": "roof-waterproofing-coatings",
+      "imageUrl": "https://ik.imagekit.io/serviceproviders/lscornerstoneroofing.com/worker-painting-red-rooftop-with-roller-at-residen.jpg?updatedAt=1750063309065"
+    },
+    {
+      "title": "Roof Rebuild Services in [location]",
+      "description": "Call [phone] for complete roof rebuild services in [location]. Whether from damage or age, we replace your system with a new one that meets modern standards.",
+      "h2": "Total Roofing Transformation",
+      "p2": "Roof rebuilds in [location] go beyond basic repairs. We tear down damaged systems and construct high-performance replacements, built to weather the next decade.",
+      "h3": "Rebuild Services Recommended For",
+      "p3": "Collapsed roofs | Fire damage | Major storm loss | Poor design | Total replacement needs",
+      "seoContent": "<h2>Expert Roof Rebuild in [location]</h2><p>We specialize in full roof rebuilds in [location]. Get a structurally sound, energy-efficient roofing system you can count on. Call [phone] to begin.</p>",
+      "slug": "roof-rebuild-services",
+      "imageUrl": "https://ik.imagekit.io/serviceproviders/lscornerstoneroofing.com/maintenance-worker-is-diligently-repairing-leaky-roof-residential-building-showcasing-skill-focus-scene-captures-essence-hard-work-dedication-home-maintenance.jpg?updatedAt=1750063302839"
+    }
+  ]
+}
 }

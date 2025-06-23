@@ -1,27 +1,25 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import content from "@/components/Content/subDomainUrlContent.json";
+import content1 from "@/components/Content/subDomainUrlContent.json";
 import Link from "next/link";
 import Banner from "@/app/components/Home/Banner";
-import Service from "@/app/components/Home/Service";
 import ContactInfo from "@/components/Content/ContactInfo.json";
-import { Metadata } from "next";
-import ReviewSlider from "@/app/components/ReviewSlider";
-import { FaPhoneSquareAlt } from "react-icons/fa";
-import CtaState from "@/app/components/CtaState";
-import ServiceSlider from "@/app/components/Home/ServiceSlider";
-import CtaWidget from "@/app/components/CtaWidget";
 import ZipAndNeighAccordian from "@/app/components/Home/ZipAndNeighAccordian";
 import Faq from "@/app/components/Home/Faq";
 import CounterCta from "@/app/components/Widgets/CounterCta";
 import HourCta from "@/app/components/Home/HourCta";
-import Guarantees from "@/app/components/Widgets/Guarantees";
 import ReviewWidget from "@/app/components/Widgets/ReviewWidget";
-import data from "@/components/Content/serviceWidgetContent.json";
-import Types from "@/app/components/Widgets/Types";
 import AreaWeServe from "@/app/components/Widgets/AreaWeServe";
+import Service from "@/app/components/Home/Service";
 // import Service from "@/app/Components/Service";
 
+ const content = JSON.parse(
+    JSON.stringify(content1)
+      .split("[location]")
+      .join(ContactInfo.location)
+      .split("[phone]")
+      .join(ContactInfo.No),
+  );
 interface SubdomainPageProps {
   params: { State: string };
 }
@@ -32,12 +30,64 @@ export function generateMetadata({ params }: SubdomainPageProps) {
   const ContentData = cityData[State];
   return {
     title: ContentData?.metaTitle,
-    description: `${ContentData.metaDescription}. Call us at (307) 417-8167.`,
+    description: ContentData?.metaDescription,
     alternates: {
       canonical: `https://${State}.${ContactInfo.host}`,
     },
   };
 }
+const stateName: Record<string, string> = {
+  AL: "Alabama",
+  AK: "Alaska",
+  AZ: "Arizona",
+  AR: "Arkansas",
+  CA: "California",
+  CO: "Colorado",
+  CT: "Connecticut",
+  DE: "Delaware",
+  FL: "Florida",
+  GA: "Georgia",
+  HI: "Hawaii",
+  ID: "Idaho",
+  IL: "Illinois",
+  IN: "Indiana",
+  IA: "Iowa",
+  KS: "Kansas",
+  KY: "Kentucky",
+  LA: "Louisiana",
+  ME: "Maine",
+  MD: "Maryland",
+  MA: "Massachusetts",
+  MI: "Michigan",
+  MN: "Minnesota",
+  MS: "Mississippi",
+  MO: "Missouri",
+  MT: "Montana",
+  NE: "Nebraska",
+  NV: "Nevada",
+  NH: "New Hampshire",
+  NJ: "New Jersey",
+  NM: "New Mexico",
+  NY: "New York",
+  NC: "North Carolina",
+  ND: "North Dakota",
+  OH: "Ohio",
+  OK: "Oklahoma",
+  OR: "Oregon",
+  PA: "Pennsylvania",
+  RI: "Rhode Island",
+  SC: "South Carolina",
+  SD: "South Dakota",
+  TN: "Tennessee",
+  TX: "Texas",
+  UT: "Utah",
+  VT: "Vermont",
+  VA: "Virginia",
+  WA: "Washington",
+  WV: "West Virginia",
+  WI: "Wisconsin",
+  WY: "Wyoming",
+};
 interface CityData {
   slug: string;
   bannerText: string;
@@ -56,6 +106,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
   // console.log(params)
   const { State } = params;
   const cityData: any = content;
+  const abbrevations: any = State.split("-").pop();
 
   // Validate subdomain
   const subDomain = Object.keys(cityData);
@@ -69,13 +120,76 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
   const slugs: any = Object.keys(cityData)
     .filter((key) => key !== State)
     .map((key) => cityData[key]);
+      const jsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: `${ContactInfo.name}`,
+          image: `${ContactInfo.logoImage}`,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: `${stateName[abbrevations.toUpperCase()]} ${ContactInfo.service}`,
+            addressLocality: `${ContentData?.name}, ${abbrevations.toUpperCase()}`,
+            addressRegion: stateName[abbrevations.toUpperCase()],
+            postalCode: ContentData?.zipCodes.split("|")[0] || "",
+            addressCountry: "US",
+          },
+          review: {
+            "@type": "Review",
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: "4.9",
+              bestRating: "5",
+            },
+            author: {
+              "@type": "Person",
+              name: `${stateName[abbrevations.toUpperCase()]} ${ContactInfo.service}`,
+            },
+          },
+          telephone: ContactInfo.No,
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:00",
+            closes: "20:00",
+          },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: `${ContactInfo.service} in ${ContentData?.name}, ${abbrevations.toUpperCase()}`,
+          brand: {
+            "@type": "Brand",
+            name: `${ContactInfo.service} ${ContentData?.name}, ${abbrevations.toUpperCase()} Pros`,
+          },
+          description: `${ContentData?.metaDescription?.split("[location]").join(ContentData?.name || ContactInfo.location)
+            ?.split("[phone]").join(ContactInfo.No)}`,
+          url: `https://${State}.${ContactInfo.host}`,
+          aggregateRating: {
+            "@type": "AggregateRating",
+            reviewCount: 7,
+            ratingValue: 4.802,
+          },
+        },
+      ],
+    };
   return (
     <div className="mx-auto max-w-[2100px] overflow-hidden">
+      <section>
+        {/* Add JSON-LD to your page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {/* ... */}
+      </section>
       <Banner
         h1={ContentData.h1Banner}
         image={ContentData.bannerImage}
         header={ContentData.bannerQuote}
-        p1={`${ContentData.metaDescription}. Call us at (307) 417-8167.`}
+        p1={ContentData.metaDescription}
       />
       {/* Section 1 */}
       {/* <p>{subDomain.map((item:any)=>(
@@ -86,7 +200,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
           <Image
             height={1000}
             width={1000}
-            src={`/${ContentData?.h2Image}`}
+            src={`${ContentData?.h2Image}`}
             className="h-[400px] w-full  rounded-lg object-cover shadow-lg"
             alt={ContentData?.h2Image.split(".")[0]}
           />
@@ -126,7 +240,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
       {/* Section 2 */}
       {/* Service */}
       <div className="mt-14 md:mt-20">
-        <Types />
+        <Service />
       </div>
       {/* Service */}
       {/* Cta */}
@@ -137,17 +251,17 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
       {/* Cta */}
       {/* Needs */}
       {ContentData?.needsSection ? (
-        <div className="mt-14 w-full px-6 md:mt-28 md:px-32">
-          <h2 className="text-first text-center text-3xl font-extrabold text-main">
+        <div className="mt-14 w-full px-6 md:mt-28 md:px-24">
+          <h2 className="text-first text-center text-3xl font-extrabold">
             {ContentData?.needsSection.title}
           </h2>
           <p
-            className="mt-6 text-center text-lg"
+            className="mt-4 text-center text-lg"
             dangerouslySetInnerHTML={{
               __html: ContentData?.needsSection.description,
             }}
           ></p>
-          <div className="event mt-8 grid grid-cols-1 gap-5 text-center sm:grid-cols-2 md:gap-16  lg:grid-cols-3">
+          <div className="event mt-6 grid grid-cols-1 gap-5 text-center sm:grid-cols-2 md:gap-16  lg:grid-cols-3">
             {ContentData?.needsSection.needslist.map(
               (item: any, index: any) => {
                 return (
@@ -184,7 +298,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
             <Image
               height={10000}
               width={10000}
-              src={`/${ContentData.h5Image}`}
+              src={`${ContentData.h5Image}`}
               className=" h-80 w-full rounded-lg object-cover shadow-lg"
               alt={ContentData.h5Image.split(".")[0]}
               title={ContentData.h5Image.split(".")[0]}
@@ -193,7 +307,6 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
         </div>
       )}
       {/* Section 4 */}
-
       {/* Section 5 */}
       {ContentData.h6 && (
         <div className="mt-14 grid grid-cols-1  gap-10 px-6 md:mt-28 md:grid-cols-2 md:px-24">
@@ -201,7 +314,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
             <Image
               height={10000}
               width={10000}
-              src={`/${ContentData?.h6Image}`}
+              src={`${ContentData?.h6Image}`}
               className=" h-[17rem] w-full rounded-lg object-cover  shadow-lg"
               alt={ContentData?.h6Image.split(".")[0]}
               title={`${ContentData.h6Image.split(".")[0]} ,${ContentData.name}`}
@@ -271,7 +384,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
                   className="rounded-xl border px-10 py-4 shadow-lg"
                   key={index}
                 >
-                  <div className="text-2xl font-semibold">{item.title}</div>
+                  <div className="text-3xl font-semibold">{item.title}</div>
                   <div
                     className="mt-2"
                     dangerouslySetInnerHTML={{ __html: item.description }}
@@ -341,10 +454,11 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
         </div>
       ) : null}
       {/* Top Sight */}
-      {/* Top Sight */}
       {/* Area we Serve */}
-      <div className="mt-14 md:mt-28">
-        <h2 className={`  text-center text-3xl font-bold`}>Cities We Serve </h2>
+      <div className="pt-14 md:pt-28" id="area-we-serve">
+        <h2 className={`  text-center text-3xl font-bold text-minor`}>
+          Cities We Serve{" "}
+        </h2>
         <AreaWeServe slugs={slugs} />
       </div>
       {/* Area we Serve */}
@@ -358,7 +472,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
               slug={ContentData?.slug}
             />
           </div>
-          <div className="mt-14 hidden items-center justify-start md:mx-40 md:block ">
+          <div className="mt-28 hidden items-center justify-start md:mx-40 md:block ">
             <div className="text-center text-3xl font-bold">
               <p className="text-main">
                 Neighborhoods we serve in {ContentData?.name}
@@ -392,7 +506,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
               slug={ContentData?.slug}
             />
           </div>
-          <div className="mt-14 hidden items-center justify-start md:mx-40 md:block  ">
+          <div className="mt-28 hidden items-center justify-start md:mx-40 md:block  ">
             <div className="text-center text-3xl font-bold">
               <p className="text-main">
                 Zip&nbsp;Codes we serve in {ContentData?.name}

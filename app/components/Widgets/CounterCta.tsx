@@ -22,10 +22,10 @@ const CounterCta = () => {
           NUMBER TALKS
         </div> */}
         <div className="mt-2 text-4xl">
-        Need Reliable <span className="text-minor">Roofing?</span> Call LS Cornerstone Roofing Today!
+        Need Reliable <span className="text-minor">Roofing?</span> Call Advanced Quality Roofing AZ Today!
         </div>
         <div className="mt-4">
-        When your roof needs attention, don’t wait or settle for less. At LS Cornerstone Roofing, we provide affordable, dependable service you can trust. Whether it’s a minor repair or a full roof replacement, our experienced team is ready to tackle any project with precision and care. Reach out to us today for expert roofing solutions!
+        We are dedicated to providing top-quality and affordable roofing services you can trust in Yorktown, AZ. Whether you need a quick repair, a comprehensive roof inspection, or a complete roof replacement, our skilled professionals are ready to assist. Contact us today to schedule your consultation and experience exceptional service from start to finish.
         </div>
         <div className="mt-6  gap-4 flex justify-center ">
           <div id='cta-id' className="flex flex-col text-lg  border px-4 py-2 bg-white rounded-md">

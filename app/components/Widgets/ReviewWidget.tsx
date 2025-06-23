@@ -17,37 +17,47 @@ const ReviewWidget: React.FC = () => {
     {
       name: "Sarah Jose",
       content:
-        "I had a leak in my roof that was driving me crazy. I called LS Cornerstone Roofing Service, and they were quick to respond and fix the issue. Their team was professional, and the work was done efficiently. I can finally relax knowing my roof is in top condition!",
+        "I noticed a small leak in my ceiling right before the rainy season started. I called them for service, and they were at my home the next day. They found the issue, explained the problem clearly, and repaired it quickly. No more leaks, even after heavy rain! I’m so grateful for their quick response and professionalism.",
     },
     {
       name: "Mark T",
       content:
-        "As a property manager, I rely on trustworthy contractors for my buildings, and LS Cornerstone Roofing has exceeded all expectations. They provide excellent communication, timely service, and affordable pricing. I’ve used them multiple times and will continue to do so.",
+        "I was worried about replacing my old roof because I’d heard horror stories about hidden fees. But Advanced Quality Roofing AZ was completely upfront about the cost and timeline. They stuck to their word, and my new roof looks amazing. I recommend them to anyone looking for honest roofers.",
     },
     {
       name: "Samantha Brown",
       content:
-        "I needed my commercial roof repaired after a storm caused some damage. The team was thorough in their inspection and recommended a cost-effective solution. They got the job done quickly, and I’m confident my business is safe for the long term.",
+        "From the moment I called Advanced Quality Roofing AZ, I felt like I was in good hands. The team was courteous and explained every step of the process. They even cleaned up so thoroughly after replacing my roof that my yard looked better than when they arrived.",
     },
     {
       name: "Karen M",
       content:
-        "When I bought my first home, I wasn’t sure about the roof’s condition. I called LS Cornerstone Roofing Company for an inspection, and they provided a detailed report with options. Their advice helped me make an informed decision, and they did the repairs at a great price!",
+        "I’ve had roofing work done before, but none of those experiences compare to working with Advanced Quality Roofing AZ. They made everything easy and stress-free. The work was completed ahead of schedule, and the quality is top-notch. I’ll call them again if I need anything in the future.",
     },
     {
       name: "Mark Jose",
       content:
-        "As a real estate agent, I work with clients who need quick, reliable roofing solutions. LS Cornerstone Roofing has always been my go-to recommendation. Their professionalism and expertise make them stand out in a crowded market.",
+        "My roof was over 20 years old and starting to show signs of wear. Advanced Quality Roofing AZ inspected it, gave me an honest assessment, and recommended a replacement. Now, I don’t have to worry about leaks or energy loss. Their work is worth every penny.",
     },
     {
       name: "Emily Rose",
       content:
-        "After a bad storm, I needed emergency roof repairs. Their team arrived quickly, and the work was top-quality. They were polite, and respectful, and did everything they could to make sure my home was secure. I highly recommend their services.",
+        "I signed up for regular maintenance with Advanced Quality Roofing AZ, and it’s been a great decision. They come out on schedule, check everything, and fix small issues before they become big problems. It’s saved me so much time and money over the years.",
     },
     {
       name: "Lisa ",
       content:
-        "I was struggling to find a reliable roofing company and I found LS Cornerstone Roofing. Their team gave me a free roof inspection and explained all the issues clearly. The repair was completed on time, and the final result exceeded my expectations.",
+        "I’ve recommended Advanced Quality Roofing AZ to all my friends and family. They repaired my roof after a big hailstorm, and their work was flawless. What impressed me the most was their honesty—they didn’t try to upsell me on unnecessary repairs.",
+    },
+    {
+      name: "Lisa ",
+      content:
+        "I recently had a new roof installed by Advanced Quality Roofing AZ, and it’s absolutely beautiful. It’s not just functional—it’s improved my home’s curb appeal, too. I’ve had so many compliments from my neighbors. Thanks for the great work!",
+    },
+    {
+      name: "Lisa ",
+      content:
+        "When I called Advanced Quality Roofing AZ about a roofing emergency, they treated my issue like a priority. Their team arrived the same day and secured my roof to prevent further damage. I can’t thank them enough for their quick response and excellent service.",
     }
   ];
 
@@ -108,10 +118,9 @@ const ReviewWidget: React.FC = () => {
                 className="w-40 "
               />
             </div>
-
-            <h3 className="mt-4 text-center text-xl  font-semibold">
+            {/* <h3 className="mt-4 text-center text-xl  font-semibold">
               {item.name}
-            </h3>
+            </h3> */}
             <p className="mt-4 ">{item.content}</p>
           </div>
         ))}

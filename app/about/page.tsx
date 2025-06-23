@@ -6,9 +6,16 @@ import { BiMailSend, BiSolidPhone, BiSolidTime } from "react-icons/bi";
 import { BsBookmarkStarFill, BsFillPatchCheckFill } from "react-icons/bs";
 import { FaCrown } from "react-icons/fa6";
 import Banner from "@/app/components/Home/Banner";
-import contentData from "@/components/Content/about.json";
+import contentData1 from "@/components/Content/about.json";
 import ContactInfo from "@/components/Content/ContactInfo.json";
 import Affordable from "../components/Widgets/Affordable";
+ const contentData = JSON.parse(
+    JSON.stringify(contentData1)
+      .split("[location]")
+      .join(ContactInfo.location)
+      .split("[phone]")
+      .join(ContactInfo.No),
+  );
 
 export const metadata: Metadata = {
   title: {
@@ -20,8 +27,6 @@ export const metadata: Metadata = {
   },
 };
 const page = () => {
-  const text = `text-[#f76610]`;
-  const btn = `bg-[#f76610] hover:bg-[#191e34]`;
   return (
     <div className="max-[1200px] flex flex-col items-center justify-center  bg-white text-black ">
       <div className="  w-screen min-w-[375px] cursor-default  text-lg md:w-full">
@@ -39,10 +44,10 @@ const page = () => {
           <div className="my-20 grid  w-full grid-cols-1 items-center justify-center gap-6 px-8 md:grid-cols-2">
             <div className="flex flex-col justify-center    ">
               <div className="text-">ABOUT </div>
-              <div className="text-3xl font-bold ">
+              <h2 className="text-3xl font-bold ">
                 {" "}
                 Who We Are?<br></br>
-              </div>
+              </h2>
               <div className="mt-6 "></div>
               <div
                 className="  text-justify"
@@ -51,7 +56,7 @@ const page = () => {
             </div>
             <div className="w-full pt-10">
               <Image
-                src={`/${contentData.h2Image}`}
+                src={`${contentData.h2Image}`}
                 className="rounded-lg border object-cover  shadow-lg "
                 alt={contentData.h2Image.split(".")[0]}
                 width={1000}
@@ -113,11 +118,11 @@ const page = () => {
         {/* Mission */}
         {/* -----------------------------------------Conversation ------------------------ */}
         <div className="my-20">
-          <div className={`text-center text-4xl font-extrabold text-main`}>
+          <h2 className={`text-center text-4xl font-extrabold text-main`}>
             Let&apos;s Start a Conversation
-          </div>
+          </h2>
           <div className="mt-4 border-double text-center">
-            <button id='cta-id'
+            <button id="cta-id"
               className={`mt-3 rounded-lg bg-main px-4 py-3 font-bold tracking-wide text-white     shadow-lg hover:bg-minor`}
             >
               <a id='cta-id' href={`tel:${ContactInfo.tel}`}> {ContactInfo.No}</a>
@@ -127,11 +132,11 @@ const page = () => {
         {/* -----------------------------------------Conversation End------------------------ */}
         {/* all */}
         <div className="mx-4 my-20 md:mx-20">
-          <div className="text-2xl font-bold ">
-            <div className="flex justify-center gap-2 ">
-              <FaCrown className={`text-2xl text-main `} />
+          <div className="text-3xl font-bold ">
+            <h2 className="flex justify-center gap-2 ">
+              <FaCrown className={`text-3xl text-main `} />
               Areas We Serve
-            </div>
+            </h2>
           </div>
           <div
             className=" mt-2 text-center text-xl"

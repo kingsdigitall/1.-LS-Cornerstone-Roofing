@@ -1,11 +1,18 @@
 import Banner from "@/app/components/Home/Banner";
 import React from "react";
-import contentData from "@/components/Content/ourBrand.json";
+import contentData1 from "@/components/Content/ourBrand.json";
 import { Metadata } from "next";
 import ContactInfo from "@/components/Content/ContactInfo.json";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "../components/Navbar";
+
+ const contentData = JSON.parse(
+    JSON.stringify(contentData1)
+      .split("[location]")
+      .join(ContactInfo.location)
+      .split("[phone]")
+      .join(ContactInfo.No),
+  );
 
 export const metadata: Metadata = {
   title: {
@@ -19,7 +26,6 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <div>
-      <Navbar/>
       <Banner
         h1={contentData.h1Banner}
         image={contentData.bannerImage}
@@ -51,7 +57,7 @@ const page = () => {
       </div>
       {/* Content 1 */}
       <div className=" py-10  justify-center flex flex-col bg-slate-50">
-      {contentData.brandslist.map((i, index) => (
+      {contentData.brandslist.map((i:any, index:number) => (
         <div key={index} className="grid border-b border-black p-4 md:py-10 justify-center items-center gap-4 max-w-6xl mx-auto">
             <p className="w-1/2 text-3xl text-main hover:underline hover:underline-offset-4  underline-offset-8 "><Link href={i.brandLink}>{i.brandName}</Link></p>
             <p className="">{i.brandDescription}</p>

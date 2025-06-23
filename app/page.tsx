@@ -1,7 +1,13 @@
 import Hero from './components/Home/Hero'
-import homeData from "@/components/Content/home.json"
+import homeData1 from "@/components/Content/home.json"
 import ContactInfo from "@/components/Content/ContactInfo.json";
-
+const homeData = JSON.parse(
+    JSON.stringify(homeData1)
+      .split("[location]")
+      .join(ContactInfo.location)
+      .split("[phone]")
+      .join(ContactInfo.No),
+  );
 export async function generateMetadata(
 ) {
  

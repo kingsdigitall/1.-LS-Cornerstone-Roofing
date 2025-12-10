@@ -4,7 +4,8 @@ import content1 from "@/components/Content/servicePage.json";
 import content from "@/components/Content/subDomainUrlContent.json";
 import { MdDoubleArrow } from "react-icons/md";
 import Link from "next/link";
-import  ContactInfo  from "@/components/Content/ContactInfo.json";
+import ContactInfo from "@/components/Content/ContactInfo.json";
+import localImages from "@/local-image-paths.json"
 interface ServiceItem {
   imageUrl: string;
   slug: string;
@@ -18,22 +19,34 @@ interface ServiceData {
   lists: ServiceItem[];
 }
 
-const Service = ({value=""}: any) => {
+const Service = ({ value = "" }: any) => {
   const data: ServiceData = content1?.serviceData;
   const contentData: { name: string } = content[value as keyof typeof content];
- const abbrevation = value?.split("-").pop()?.toUpperCase(); 
-const StateName = contentData?.name ? (abbrevation ? `${contentData.name}, ${abbrevation}` : contentData.name) : ContactInfo.location;
+  const abbrevation = value?.split("-").pop()?.toUpperCase();
+  const StateName = contentData?.name
+    ? abbrevation
+      ? `${contentData.name}, ${abbrevation}`
+      : contentData.name
+    : ContactInfo.location;
   return (
     <div className=" px-4  md:px-10">
-      <h2 className="text-first text-center text-3xl font-bold text-main  mt-5">
-        {data.title?.split("[location]").join(contentData?.name || ContactInfo.location)
-            ?.split("[phone]").join(ContactInfo.No)}
+      <h2 className="text-first mt-5 text-center text-3xl font-bold  text-main">
+        {data.title
+          ?.split("[location]")
+          .join(contentData?.name || ContactInfo.location)
+          ?.split("[phone]")
+          .join(ContactInfo.No)}
       </h2>
 
       <div
         className="mt-4 px-4  text-center "
-        dangerouslySetInnerHTML={{ __html: data.p?.split("[location]").join(contentData?.name || ContactInfo.location)
-            ?.split("[phone]").join(ContactInfo.No) }}
+        dangerouslySetInnerHTML={{
+          __html: data.p
+            ?.split("[location]")
+            .join(contentData?.name || ContactInfo.location)
+            ?.split("[phone]")
+            .join(ContactInfo.No),
+        }}
       ></div>
       <div className="mb-10   flex flex-wrap   justify-center gap-10">
         {data.lists?.map((items: ServiceItem, index: number) => (
@@ -45,12 +58,14 @@ const StateName = contentData?.name ? (abbrevation ? `${contentData.name}, ${abb
               <div className="h-14 w-14 overflow-hidden rounded-full object-cover md:h-full md:w-full md:rounded-none">
                 <Image
                   aria-hidden="true"
-                  src={`${items.imageUrl}`}
+                  src={`/servicePage/${localImages.servicePage.lists[index as any as keyof typeof localImages.servicePage.lists].imageUrl}`}
                   unoptimized={true}
                   alt={
                     items.imageUrl.split("/").pop()?.split(".")[0] || "image"
                   }
-                  title={items.imageUrl.split("/").pop()?.split(".")[0] || "image"}
+                  title={
+                    items.imageUrl.split("/").pop()?.split(".")[0] || "image"
+                  }
                   width="900"
                   height="550"
                   className="h-14 w-14 object-cover md:h-full md:w-full "
@@ -61,16 +76,22 @@ const StateName = contentData?.name ? (abbrevation ? `${contentData.name}, ${abb
               className={`1  mt-4 w-[75%] justify-start gap-2 px-4 text-lg font-bold text-main  md:flex  md:text-xl`}
             >
               <MdDoubleArrow className="text-bold hidden text-3xl md:block" />
-              <Link href={`${ContactInfo.baseUrl}services/${items.slug}`}>
-                {items.title?.split("[location]").join(contentData?.name || ContactInfo.location)
-            ?.split("[phone]").join(ContactInfo.No)}
+              <Link href={`/services/${items.slug}`}>
+                {items.title
+                  ?.split("[location]")
+                  .join(contentData?.name || ContactInfo.location)
+                  ?.split("[phone]")
+                  .join(ContactInfo.No)}
               </Link>
             </h3>
             <div
               className=" hidden p-4 text-justify text-base md:block"
               dangerouslySetInnerHTML={{
-                __html: items.description?.split("[location]").join(contentData?.name || ContactInfo.location)
-                ?.split("[phone]").join(ContactInfo.No),
+                __html: items.description
+                  ?.split("[location]")
+                  .join(contentData?.name || ContactInfo.location)
+                  ?.split("[phone]")
+                  .join(ContactInfo.No),
               }}
             ></div>
           </div>

@@ -3,21 +3,33 @@ import Link from "next/link";
 import React from "react";
 import { FaPhoneVolume } from "react-icons/fa6";
 import contentData1 from "@/components/Content/contact.json";
-import ContactInfo from '@/components/Content/ContactInfo.json';
+import ContactInfo from "@/components/Content/ContactInfo.json";
 import Banner from "../Home/Banner";
-
-const contentData = JSON.parse(
+import { headers } from "next/headers";
+import content from "@/components/Content/subDomainUrlContent.json";
+import localImages from "@/local-image-paths.json"
+import home from "@/components/Content/home.json";
+const Page = () => {
+  const headersList = headers();
+  const subdomain = headersList.get("x-subdomain");
+  const Data: any = content[subdomain as keyof typeof content];
+  const contentData = JSON.parse(
     JSON.stringify(contentData1)
       .split("[location]")
-      .join(ContactInfo.location)
+      .join(Data?.name || ContactInfo.location)
       .split("[phone]")
       .join(ContactInfo.No),
   );
-const Page = () => {
-
+  const mapLink = JSON.parse(
+    JSON.stringify(home.mapLink)
+      .split("[location]")
+      .join(Data?.name || ContactInfo.location)
+      .split("[phone]")
+      .join(ContactInfo.No),
+  );
   return (
-    <div className="flex flex-col justify-center items-center bg-white text-black">
-      <div className="cursor-default w-screen md:w-full text-lg">
+    <div className="flex flex-col items-center justify-center bg-white text-black">
+      <div className="w-screen cursor-default text-lg md:w-full">
         {/* Poster */}
         <Banner
           h1={contentData.h1Banner}
@@ -28,19 +40,19 @@ const Page = () => {
         {/* Poster */}
 
         {/* Content1 */}
-        <div className="flex justify-center items-center">
-          <div className="md:px-20 px-4 mt-10">
-            <div className="gap-6  mt-10 grid grid-cols-1 md:grid-cols-2 items-center">
+        <div className="flex items-center justify-center">
+          <div className="mt-10 px-4 md:px-20">
+            <div className="mt-10  grid grid-cols-1 items-center gap-6 md:grid-cols-2">
               <Image
-                src={`${contentData.h2Image}`}
+                src={`/contact/${localImages.contact.h2Image}`}
                 width={1000}
                 height={1000}
                 alt={contentData.h2Image.split(".")[0]}
-                className="object-cover w-full h-full"
+                className="h-full w-full object-cover"
               />
-              <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col items-center justify-center">
                 <div className="w-full">
-                  <h2 className="text-3xl mt-4 md:mt-0 font-bold">
+                  <h2 className="mt-4 text-3xl font-bold md:mt-0">
                     {contentData.h2}
                   </h2>
                 </div>
@@ -48,11 +60,12 @@ const Page = () => {
                   className="mt-4 text-justify"
                   dangerouslySetInnerHTML={{ __html: contentData.p2 }}
                 ></p>
-                <Link id='cta-id' href={`tel:${ContactInfo.tel}`}>
-                  <button id="cta-id"
-                    className="bg-main hover:bg-minor text-white font-bold p-4 rounded-3xl mt-10 text-xl flex justify-center border items-center"
+                <Link id="cta-id" href={`tel:${ContactInfo.tel}`}>
+                  <button
+                    id="cta-id"
+                    className="mt-10 flex items-center justify-center rounded-3xl border bg-main p-4 text-xl font-bold text-white hover:bg-minor"
                   >
-                    <FaPhoneVolume className="text-3xl mr-2" />
+                    <FaPhoneVolume className="mr-2 text-3xl" />
                     Call Us Now
                   </button>
                 </Link>
@@ -64,15 +77,16 @@ const Page = () => {
 
         {/* Let's Start a Conversation */}
         <div className="mt-16">
-          <h2 className="text-main text-4xl font-extrabold text-center">
-            Let&apos;s Start a Conversation
-          </h2>
-          <div className="text-center border-double">
-            <a id='cta-id' href={`tel:${ContactInfo.tel}`}>
-              <button id='cta-id'
-                className="bg-main hover:bg-minor shadow-lg rounded-lg py-3 px-4 tracking-wide mt-3 text-white font-bold"
+          <div className="text-center text-4xl font-extrabold text-main">
+            Have a business enquiry? Contact us today!
+          </div>
+          <div className="border-double text-center">
+            <a id="cta-id" href={`mailto:${ContactInfo.mail}`}>
+              <button
+                id="cta-id"
+                className="mt-3 rounded-lg bg-main px-4 py-3 font-bold tracking-wide text-white shadow-lg hover:bg-minor"
               >
-                {ContactInfo.No}
+                {ContactInfo.mail}
               </button>
             </a>
           </div>
@@ -80,8 +94,8 @@ const Page = () => {
         {/* Let's Start a Conversation */}
 
         {/* Content 2 */}
-        <div className="grid grid-cols-1 w-full md:grid-cols-2 gap-6 mt-16 md:px-24 px-4 items-center">
-          <div className="flex flex-col justify-around w-full gap-3">
+        <div className="mt-16 grid w-full grid-cols-1 items-center gap-6 px-4 md:grid-cols-2 md:px-24">
+          <div className="flex w-full flex-col justify-around gap-3">
             <div>
               <h2 className="text-3xl font-bold">{contentData?.h3}</h2>
               <div
@@ -93,7 +107,7 @@ const Page = () => {
           <div>
             <Image
               src={`${contentData.h3Image}`}
-              className="border rounded-lg w-full h-[350px] shadow-lg object-cover"
+              className="h-[350px] w-full rounded-lg border object-cover shadow-lg"
               alt={contentData.h3Image.split(".")[0]}
               width={1000}
               height={500}
@@ -103,18 +117,23 @@ const Page = () => {
         {/* Content 2 */}
 
         {/* Call to Action */}
-        <div className="xl:w-full w-11/12 mx-4 md:mx-0 mt-16 md:mb-4 px-10 flex flex-col gap-6 md:flex-row justify-center items-center group md:space-x-2">
+        <div className="group mx-4 mt-16 flex w-11/12 flex-col items-center justify-center gap-6 px-10 md:mx-0 md:mb-4 md:flex-row md:space-x-2 xl:w-full">
           <Image
             aria-hidden="true"
-            src="https://ik.imagekit.io/serviceproviders/advancedqualityroofingaz.com/img1.png?updatedAt=1749641037584"
+            src="/img1.png"
             alt="Calling icon"
             width={200}
             height={200}
-            className="group-hover:-translate-y-4 ease-in duration-300"
+            className="duration-300 ease-in group-hover:-translate-y-4"
           />
-          <Link id='cta-id' href={`tel:${ContactInfo.tel}`} className="w-full grid place-items-center">
-            <div id='cta-id'
-              className="bg-white w-[90%] text-2xl font-semibold text-center rounded-lg m-h-64 p-2 ring ring-main transform hover:shadow-minor group-hover:translate-y-4 hover:shadow-xl transition ease-in duration-300"
+          <Link
+            id="cta-id"
+            href={`tel:${ContactInfo.tel}`}
+            className="grid w-full place-items-center"
+          >
+            <div
+              id="cta-id"
+              className="m-h-64 w-[90%] transform rounded-lg bg-white p-2 text-center text-2xl font-semibold ring ring-main transition duration-300 ease-in hover:shadow-xl hover:shadow-minor group-hover:translate-y-4"
               dangerouslySetInnerHTML={{ __html: contentData.ctaText }}
             ></div>
           </Link>
@@ -122,11 +141,11 @@ const Page = () => {
         {/* Call to Action */}
 
         {/* Map */}
-        <div className="w-full mt-10">
+        <div className="mt-10 w-full">
           <iframe
-            src="https://maps.google.com/maps?q=+Arizona+usa&t=&z=7&ie=UTF8&iwloc=&output=embed"
+            src={mapLink}
             height="350"
-            className="border w-full rounded-lg mt-10"
+            className="mt-10 w-full rounded-lg border"
             loading="lazy"
             title="map"
           ></iframe>

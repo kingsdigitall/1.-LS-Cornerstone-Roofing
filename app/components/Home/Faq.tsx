@@ -9,6 +9,7 @@ import {
 const Faq = ({ data }: any) => {
   return (
     <div className="mt-14 md:mt-20" itemScope itemType="https://schema.org/FAQPage">
+      <h2 className="text-center text-3xl font-bold text-minor">Frequently Asked Questions</h2>
       <div className="mt-5 flex flex-col items-center justify-center px-6">
         <Accordion
           type="multiple"

@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { FaPhoneVolume } from "react-icons/fa";
 import ContactInfo from "@/components/Content/ContactInfo.json";
-
+import localImages from "@/local-image-paths.json"
 const Banner = ({
   image,
   header,
@@ -19,7 +19,7 @@ const Banner = ({
     <div className=" relative  mb-24 h-[70vh] max-w-[2100px] duration-150 ease-in-out md:mt-0 md:h-[460px]">
       <Image
         className="absolute h-[70vh] w-[100%] object-cover  md:h-[460px] "
-        src={`/banner.jpg`}
+        src={`/ContactInfo/${localImages.ContactInfo.bannerImage}`}
         alt="Banner_Image"
         width={10000}
         height={10000}

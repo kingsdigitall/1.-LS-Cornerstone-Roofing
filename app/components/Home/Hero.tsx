@@ -9,13 +9,14 @@ import Service from "@/app/components/Home/Service";
 import ReviewWidget from "../Widgets/ReviewWidget";
 import AreaWeServe from "../Widgets/AreaWeServe";
 import content from "@/components/Content/subDomainUrlContent.json";
+import localImages from "@/local-image-paths.json";
 const homeData = JSON.parse(
-    JSON.stringify(homeData1)
-      .split("[location]")
-      .join(ContactInfo.location)
-      .split("[phone]")
-      .join(ContactInfo.No),
-  );
+  JSON.stringify(homeData1)
+    .split("[location]")
+    .join(ContactInfo.location)
+    .split("[phone]")
+    .join(ContactInfo.No),
+);
 
 const Hero = () => {
   const cityData: any = content;
@@ -44,7 +45,7 @@ const Hero = () => {
             <Image
               height={10000}
               width={10000}
-              src={`${homeData.h2Image}`}
+              src={`/home/${localImages.home.h2Image}`}
               className=" h-full w-full rounded-lg object-cover shadow-lg"
               alt={homeData.h2Image.split(".")[0]}
               title={homeData.h2Image.split(".")[0]}
@@ -68,7 +69,7 @@ const Hero = () => {
             <Image
               height={1000}
               width={1000}
-              src={`${homeData?.h3Image}`}
+              src={`/home/${localImages.home.h3Image}`}
               className="h-[400px] w-full  rounded-lg object-cover shadow-lg"
               alt={homeData?.h3Image.split(".")[0]}
             />
@@ -119,7 +120,7 @@ const Hero = () => {
               title="Google Map"
               height="350"
               width={"100%"}
-              src={`https://maps.google.com/maps?q=+Arizona+usa&t=&z=6&ie=UTF8&iwloc=&output=embed`}
+              src={homeData.mapLink}
               loading="lazy"
             ></iframe>
           </div>

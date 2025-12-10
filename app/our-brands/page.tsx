@@ -5,7 +5,8 @@ import { Metadata } from "next";
 import ContactInfo from "@/components/Content/ContactInfo.json";
 import Image from "next/image";
 import Link from "next/link";
-
+import Navbar from "../components/Navbar";
+import localImages from "@/local-image-paths.json"
  const contentData = JSON.parse(
     JSON.stringify(contentData1)
       .split("[location]")
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <div>
+      <Navbar/>
       <Banner
         h1={contentData.h1Banner}
         image={contentData.bannerImage}
@@ -46,7 +48,7 @@ const page = () => {
           <Image
             height={10000}
             width={10000}
-            src={`/${contentData.h2Image}`}
+            src={`/ourBrand/${localImages.ourBrand.h2Image}`}
             className=" h-full w-full rounded-lg object-cover shadow-lg"
             alt={contentData.h2Image.split(".")[0] || "image"}
             title={

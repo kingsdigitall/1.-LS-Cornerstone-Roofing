@@ -25,9 +25,8 @@ export default function RootLayout({
     <html lang="en">
       <GoogleAnalytics gaId="" />
       <GoogleTagManager gtmId="GTM-PM79QJLJ" />
-      <body className={`w-full ${inter.className}`}>
+      <body className={`w-full max-w-[135rem] mx-auto ${inter.className}`}>
         <div className="bg-white">
-          <Navbar />
           {children}
           <CallButtonMobile />
         </div>

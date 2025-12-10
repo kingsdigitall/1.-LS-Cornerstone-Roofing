@@ -1,12 +1,13 @@
 {
     "No": "(307) 417-8167",
     "tel": "3074178167",
-    "mail":"",
-    "baseUrl":"https://lscornerstoneroofing.com/",
-    "host":"lscornerstoneroofing.com",
-    "name":"LS Cornerstone Roofing",
-    "address":"2255 Brunton Court Suite A, Riverton, WY 82501, United States",
+    "mail": "oliver@lscornerstoneroofing.com",
+    "baseUrl": "https://lscornerstoneroofing.com/",
+    "host": "lscornerstoneroofing.com",
+    "name": "LS Cornerstone Roofing",
+    "address": "2255 Brunton Court Suite A, Riverton, WY 82501, United States",
     "location": "Wyoming",
-     "service": "Roofing Service",
-     "logoImage":"https://ik.imagekit.io/serviceproviders/lscornerstoneroofing.com/logo.png?updatedAt=1750063302203"
+    "service": "Roofing Service",
+    "logoImage": "https://ik.imagekit.io/serviceproviders/lscornerstoneroofing.com/logo.png?updatedAt=1750063302203",
+    "bannerImage": "https://ik.imagekit.io/serviceproviders/lscornerstoneroofing.com/banner.jpg?updatedAt=1750063315587"
 }

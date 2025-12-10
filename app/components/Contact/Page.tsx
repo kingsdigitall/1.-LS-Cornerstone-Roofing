@@ -106,7 +106,7 @@ const Page = () => {
           </div>
           <div>
             <Image
-              src={`${contentData.h3Image}`}
+              src={`/contact/${localImages.contact.h3Image}`}
               className="h-[350px] w-full rounded-lg border object-cover shadow-lg"
               alt={contentData.h3Image.split(".")[0]}
               width={1000}

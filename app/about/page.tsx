@@ -9,6 +9,8 @@ import Banner from "@/app/components/Home/Banner";
 import contentData1 from "@/components/Content/about.json";
 import ContactInfo from "@/components/Content/ContactInfo.json";
 import Affordable from "../components/Widgets/Affordable";
+import Navbar from "../components/Navbar";
+import localImages from "@/local-image-paths.json"
  const contentData = JSON.parse(
     JSON.stringify(contentData1)
       .split("[location]")
@@ -30,6 +32,7 @@ const page = () => {
   return (
     <div className="max-[1200px] flex flex-col items-center justify-center  bg-white text-black ">
       <div className="  w-screen min-w-[375px] cursor-default  text-lg md:w-full">
+        <Navbar/>
         {/* poster */}
         <Banner
           h1={contentData.h1Banner}
@@ -56,7 +59,7 @@ const page = () => {
             </div>
             <div className="w-full pt-10">
               <Image
-                src={`${contentData.h2Image}`}
+                src={`/about/${localImages.about.h2Image}`}
                 className="rounded-lg border object-cover  shadow-lg "
                 alt={contentData.h2Image.split(".")[0]}
                 width={1000}

@@ -1,6 +1,7 @@
 import Hero from './components/Home/Hero'
 import homeData1 from "@/components/Content/home.json"
 import ContactInfo from "@/components/Content/ContactInfo.json";
+import Navbar from './components/Navbar';
 const homeData = JSON.parse(
     JSON.stringify(homeData1)
       .split("[location]")
@@ -23,6 +24,7 @@ export async function generateMetadata(
 export default function Home() {
   return (
    <div className=""> 
+   <Navbar/>
     <Hero/>
    </div>
   )

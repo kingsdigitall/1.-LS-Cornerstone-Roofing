@@ -1,35 +1,44 @@
+// middleware.ts
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import subdomainUrl from "@/components/Content/subDomainUrlContent.json";
 
 export function middleware(request: NextRequest) {
-  const subDomains = Object.keys(subdomainUrl);
   const url = request.nextUrl.clone();
-  const hostname = request.headers.get("host");
-  const subdomain:any = hostname?.split(".")[0];
-  // console.log("subdomain", subdomain);
-  // Don't rewrite for asset requests
+  const hostname = request.headers.get("host") || "";
+  const subdomain = hostname.split(".")[0];
+  const subDomains = Object.keys(subdomainUrl);
+  const allowedSubs = Object.keys(subdomainUrl);
+
+  // Skip Next assets
   if (
     url.pathname.startsWith("/_next") ||
     url.pathname.startsWith("/static") ||
     url.pathname.match(/\.(jpg|jpeg|png|gif|svg|ico|webp)$/i)
   ) {
-    // console.log("Asset request, not rewriting:", url.pathname);
     return NextResponse.next();
   }
-  //check if subdomain is valid
+
+
+
+  // 2) Let the main domain serve robots and sitemap normally
+  if (/^\/(robots\.txt|sitemap.xml|blogs\/sitemap\.xml)$/.test(url.pathname)) {
+    const res = NextResponse.next();
+    res.headers.set("x-subdomain", subdomain);
+    return res;
+  }
+
   if (!subDomains.includes(subdomain)) {
     return NextResponse.next();
   }
- // Check if subdomain is undefined and redirect to home page
- if (subdomain == hostname ) {
-  return NextResponse.next();
-}
+
   if (subdomain && subdomain !== "www") {
-    // Rewrite the URL path for subdomain routing
     url.pathname = `/${subdomain}${url.pathname}`;
   }
-  return NextResponse.rewrite(url);
+
+  const response = NextResponse.rewrite(url);
+  response.headers.set("x-subdomain", subdomain);
+  return response;
 }
 
 export const config = {

@@ -3,6 +3,7 @@ import React from "react";
 import contentData1 from "@/components/Content/contact.json";
 import ContactInfo from '@/components/Content/ContactInfo.json';
 import Page from "../components/Contact/Page";
+import Navbar from "../components/Navbar";
 const contentData = JSON.parse(
     JSON.stringify(contentData1)
       .split("[location]")
@@ -25,6 +26,7 @@ const page = () => {
 
   return (
    <div className="">
+    <Navbar/>
     <Page/>
    </div>
   );

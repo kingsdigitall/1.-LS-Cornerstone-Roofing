@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { RiMapPin2Fill } from "react-icons/ri";
+import { RiMailFill, RiMapPin2Fill } from "react-icons/ri";
 import data from "@/components/Content/servicePage.json";
 import ContactInfo from "@/components/Content/ContactInfo.json";
+import localImages from "@/local-image-paths.json"
 const Footer = () => {
   return (
     <div className=" flex w-full items-center justify-center bg-main">
@@ -11,7 +12,7 @@ const Footer = () => {
           <div className="mt-8 flex w-fit flex-col justify-center gap-2 px-6  md:w-full  md:flex-row md:items-start   md:justify-around md:px-20 ">
             <div className="mt-4 flex   items-center justify-center text-2xl md:mt-0 md:w-52">
               <Image
-                src={`/logo.png`}
+                src={`/ContactInfo/${localImages.ContactInfo.logoImage}`}
                 height={10000}
                 width={10000}
                 className="w-full object-cover  "
@@ -85,6 +86,19 @@ const Footer = () => {
                     {ContactInfo.address}
                   </div>
                 </div>
+                {ContactInfo.mail && (
+                  <div className="mt-2">
+                    <div className="flex gap-2">
+                      <RiMailFill className="text-cream mt-1 w-8 text-lg " />
+                      <a
+                        href={`mailto:${ContactInfo.mail}`}
+                        className="!text-start underline"
+                      >
+                        {ContactInfo.mail}
+                      </a>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -92,7 +106,7 @@ const Footer = () => {
             <p className="my-2">
               Copyright ©2025 {ContactInfo.name}, All Right Reserved |{" "}
               <Link
-                href={`${ContactInfo.baseUrl}sitemap.xml`}
+                href={`/sitemap.xml`}
                 className="transition hover:font-bold"
               >
                 Sitemap

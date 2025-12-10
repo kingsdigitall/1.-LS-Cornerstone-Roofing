@@ -4,6 +4,7 @@ import contentData1 from "@/components/Content/location.json";
 import Banner from '@/app/components/Home/Banner';
 import { Metadata } from 'next';
 import ContactInfo from '@/components/Content/ContactInfo.json'
+import Navbar from '../components/Navbar';
  const contentData = JSON.parse(
     JSON.stringify(contentData1)
       .split("[location]")
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <div>
+      <Navbar/>
       <Banner
         h1={contentData.h1Banner}
         image={contentData.bannerImage}
